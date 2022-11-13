@@ -38,6 +38,7 @@ function getComputerChoice() {
 }
 
 function playRound(playersChoice, computersChoice) {
+    playersChoice = playersChoice.toLowerCase();
     if (playersChoice == computersChoice) {
         console.log("Its a draw, play again!")
         //playRound(); //will recurse in tests
@@ -63,7 +64,7 @@ function playRound(playersChoice, computersChoice) {
 }
 
 ///TESTING ///
-let playersChoice = 'scissors';
+let playersChoice = 'scisSSors';
 let computersChoice = getComputerChoice();
 console.log(playRound(playersChoice, computersChoice));
 computersChoice = getComputerChoice();
@@ -75,7 +76,7 @@ console.log(playRound(playersChoice, computersChoice));
 computersChoice = getComputerChoice();
 console.log(playRound(playersChoice, computersChoice));
 
-playersChoice = 'rock';
+playersChoice = 'ROCK';
 computersChoice = getComputerChoice();
 console.log(playRound(playersChoice, computersChoice));
 computersChoice = getComputerChoice();
@@ -87,7 +88,7 @@ console.log(playRound(playersChoice, computersChoice));
 computersChoice = getComputerChoice();
 console.log(playRound(playersChoice, computersChoice));
 
-playersChoice = 'paper';
+playersChoice = 'Paper';
 computersChoice = getComputerChoice();
 console.log(playRound(playersChoice, computersChoice));
 computersChoice = getComputerChoice();
