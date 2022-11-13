@@ -38,10 +38,12 @@ function getComputerChoice() {
 }
 
 function playRound(playersChoice, computersChoice) {
+    computersChoice = getComputerChoice();
+    playersChoice = prompt("Please type in you choice..");
     playersChoice = playersChoice.toLowerCase();
     if (playersChoice == computersChoice) {
         console.log("Its a draw, play again!")
-        //playRound(); //will recurse in tests
+        //playRound(); //will recurse in testing
     } else if (playersChoice == "rock"){
         if (computersChoice == "paper") {
             console.log("You loose paper beat rock!");
@@ -62,40 +64,4 @@ function playRound(playersChoice, computersChoice) {
         }
     }
 }
-
-///TESTING ///
-let playersChoice = 'scisSSors';
-let computersChoice = getComputerChoice();
-console.log(playRound(playersChoice, computersChoice));
-computersChoice = getComputerChoice();
-console.log(playRound(playersChoice, computersChoice));
-computersChoice = getComputerChoice();
-console.log(playRound(playersChoice, computersChoice));
-computersChoice = getComputerChoice();
-console.log(playRound(playersChoice, computersChoice));
-computersChoice = getComputerChoice();
-console.log(playRound(playersChoice, computersChoice));
-
-playersChoice = 'ROCK';
-computersChoice = getComputerChoice();
-console.log(playRound(playersChoice, computersChoice));
-computersChoice = getComputerChoice();
-console.log(playRound(playersChoice, computersChoice));
-computersChoice = getComputerChoice();
-console.log(playRound(playersChoice, computersChoice));
-computersChoice = getComputerChoice();
-console.log(playRound(playersChoice, computersChoice));
-computersChoice = getComputerChoice();
-console.log(playRound(playersChoice, computersChoice));
-
-playersChoice = 'Paper';
-computersChoice = getComputerChoice();
-console.log(playRound(playersChoice, computersChoice));
-computersChoice = getComputerChoice();
-console.log(playRound(playersChoice, computersChoice));
-computersChoice = getComputerChoice();
-console.log(playRound(playersChoice, computersChoice));
-computersChoice = getComputerChoice();
-console.log(playRound(playersChoice, computersChoice));
-computersChoice = getComputerChoice();
-console.log(playRound(playersChoice, computersChoice));
+playRound();
