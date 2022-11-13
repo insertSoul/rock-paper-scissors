@@ -29,19 +29,72 @@ function getComputerChoice() {
     let randomChoice = (Math.random() * 3)
     randomChoice = Math.floor(randomChoice);
     if (randomChoice == 0) {
-        return("Rock")
+        return("rock")
     } else if (randomChoice == 1) {
-        return("Scissors")
+        return("scissors")
     } else {
-        return ("Paper")
+        return ("paper")
     }
 }
 
-console.log(getComputerChoice());
-console.log(getComputerChoice());
-console.log(getComputerChoice());
-console.log(getComputerChoice());
-console.log(getComputerChoice());
-console.log(getComputerChoice());
-console.log(getComputerChoice());
+function playRound(playersChoice, computersChoice) {
+    if (playersChoice == computersChoice) {
+        console.log("Its a draw, play again!")
+        //playRound(); //will recurse in tests
+    } else if (playersChoice == "rock"){
+        if (computersChoice == "paper") {
+            console.log("You loose paper beat rock!");
+        }else {
+            console.log("You win rock beat scissors!");
+        }
+    } else if (playersChoice == "paper"){
+        if (computersChoice == "scissors") {
+            console.log("You loose scissors beat paper");
+        }else {
+            console.log("You win paper beat rock")
+        }
+    } else if (playersChoice == "scissors"){
+        if (computersChoice == "rock") {
+            console.log("You loose rock beat scissors");
+        }else {
+            console.log("You win scissors beat paper");
+        }
+    }
+}
 
+///TESTING ///
+let playersChoice = 'scissors';
+let computersChoice = getComputerChoice();
+console.log(playRound(playersChoice, computersChoice));
+computersChoice = getComputerChoice();
+console.log(playRound(playersChoice, computersChoice));
+computersChoice = getComputerChoice();
+console.log(playRound(playersChoice, computersChoice));
+computersChoice = getComputerChoice();
+console.log(playRound(playersChoice, computersChoice));
+computersChoice = getComputerChoice();
+console.log(playRound(playersChoice, computersChoice));
+
+playersChoice = 'rock';
+computersChoice = getComputerChoice();
+console.log(playRound(playersChoice, computersChoice));
+computersChoice = getComputerChoice();
+console.log(playRound(playersChoice, computersChoice));
+computersChoice = getComputerChoice();
+console.log(playRound(playersChoice, computersChoice));
+computersChoice = getComputerChoice();
+console.log(playRound(playersChoice, computersChoice));
+computersChoice = getComputerChoice();
+console.log(playRound(playersChoice, computersChoice));
+
+playersChoice = 'paper';
+computersChoice = getComputerChoice();
+console.log(playRound(playersChoice, computersChoice));
+computersChoice = getComputerChoice();
+console.log(playRound(playersChoice, computersChoice));
+computersChoice = getComputerChoice();
+console.log(playRound(playersChoice, computersChoice));
+computersChoice = getComputerChoice();
+console.log(playRound(playersChoice, computersChoice));
+computersChoice = getComputerChoice();
+console.log(playRound(playersChoice, computersChoice));
