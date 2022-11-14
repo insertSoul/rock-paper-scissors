@@ -42,46 +42,54 @@ function playRound(playersChoice, computersChoice) {
     playersChoice = playersChoice.toLowerCase();
     if (playersChoice == computersChoice) {
         console.log("Its a draw, play again!")
-        playRound(); //will recurse in testing
+        return playRound();
     } else if (playersChoice == "rock"){
         if (computersChoice == "paper") {
             console.log("You loose paper beat rock!");
-            return("loss");
+            return false;
         }else {
             console.log("You win rock beat scissors!");
-            return("win");
+            return true;
         }
     } else if (playersChoice == "paper"){
         if (computersChoice == "scissors") {
             console.log("You loose scissors beat paper");
-            return("loss");
+            return false;
         }else {
             console.log("You win paper beat rock")
-            return("win");
+            return true;
         }
     } else if (playersChoice == "scissors"){
         if (computersChoice == "rock") {
             console.log("You loose rock beat scissors");
-            return("loss");
+            return false;
         }else {
             console.log("You win scissors beat paper");
-            return("win");
+            return true;
         }
     }
 }
 
+
+
 function playGame() {
-    let playerWinCounter = 0
-    let computerWinCounter = 0
+    let playerWinCounter = 0;
+    let computerWinCounter = 0;
     for (let i = 0; i < 5; i++) {
-        if (playRound() == "win") {
-            playerWinCounter += 1
+        if (playRound() === true) {
+            playerWinCounter += 1;
         } else {
-            computerWinCounter +=1
+            computerWinCounter += 1;
         }
     }
-    console.log(playerWinCounter);
-    console.log(computerWinCounter);
+    
+    if (playerWinCounter >= 3) {
+        console.log("Well done you beat the computer");
+    } else  {
+        console.log("Better luck next time, the computer won");
+    }
+    console.log(`\nThe final scores are:\n You:${playerWinCounter} \n Computer:${computerWinCounter} `);
 }
+
 
 playGame();
