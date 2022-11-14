@@ -81,6 +81,9 @@ function playGame() {
         } else {
             computerWinCounter += 1;
         }
+        if (playerWinCounter >=3 || computerWinCounter >=3) {
+            break
+        }
     }
     
     if (playerWinCounter >= 3) {
