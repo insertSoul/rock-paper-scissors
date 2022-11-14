@@ -23,7 +23,6 @@
 // Loop through the turn function 5 times 
 // Create a counter(s) to store win and losses
 // Make sure function does exit after
-//let guessInput = document.getElementById(guessInput);
 
 function getComputerChoice() {
     let randomChoice = (Math.random() * 3)
@@ -43,25 +42,46 @@ function playRound(playersChoice, computersChoice) {
     playersChoice = playersChoice.toLowerCase();
     if (playersChoice == computersChoice) {
         console.log("Its a draw, play again!")
-        //playRound(); //will recurse in testing
+        playRound(); //will recurse in testing
     } else if (playersChoice == "rock"){
         if (computersChoice == "paper") {
             console.log("You loose paper beat rock!");
+            return("loss");
         }else {
             console.log("You win rock beat scissors!");
+            return("win");
         }
     } else if (playersChoice == "paper"){
         if (computersChoice == "scissors") {
             console.log("You loose scissors beat paper");
+            return("loss");
         }else {
             console.log("You win paper beat rock")
+            return("win");
         }
     } else if (playersChoice == "scissors"){
         if (computersChoice == "rock") {
             console.log("You loose rock beat scissors");
+            return("loss");
         }else {
             console.log("You win scissors beat paper");
+            return("win");
         }
     }
 }
-playRound();
+
+function playGame() {
+    let playerWinCounter = 0
+    let computerWinCounter = 0
+    for (let i = 0; i < 5; i++) {
+        if (playRound() == "win") {
+            playerWinCounter += 1
+        } else {
+            computerWinCounter +=1
+        }
+    }
+    console.log(playerWinCounter);
+    console.log(computerWinCounter);
+}
+
+playGame();
