@@ -94,5 +94,6 @@ function playGame() {
     console.log(`\nThe final scores are:\n You:${playerWinCounter} \n Computer:${computerWinCounter} `);
 }
 
-
-playGame();
+document.addEventListener("DOMContentLoaded", function(event) { 
+    playGame();
+});
