@@ -26,3 +26,15 @@ p {
     border-radius: 10px;
 
 }
+.buttonHolder{
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin: 1rem;
+    align-content: center;
+}
+button {
+    width: 350px;
+    height: 300px;
+    border-radius: 15px;
+}

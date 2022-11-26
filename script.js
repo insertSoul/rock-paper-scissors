@@ -71,7 +71,7 @@ function playRound(playersChoice, computersChoice) {
 }
 
 
-
+/*
 function playGame() {
     let playerWinCounter = 0;
     let computerWinCounter = 0;
@@ -93,6 +93,7 @@ function playGame() {
     }
     console.log(`\nThe final scores are:\n You:${playerWinCounter} \n Computer:${computerWinCounter} `);
 }
+*/
 
 document.addEventListener("DOMContentLoaded", function(event) { 
     playGame();
