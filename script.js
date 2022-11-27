@@ -38,8 +38,8 @@ function getComputerChoice() {
 
 function playRound(playersChoice, computersChoice) {
     computersChoice = getComputerChoice();
-    playersChoice = prompt("Please type in you choice..");
-    playersChoice = playersChoice.toLowerCase();
+    //playersChoice = prompt("Please type in you choice..");
+    //playersChoice = playersChoice.toLowerCase();
     if (playersChoice == computersChoice) {
         console.log("Its a draw, play again!")
         return playRound();
@@ -93,8 +93,24 @@ function playGame() {
     }
     console.log(`\nThe final scores are:\n You:${playerWinCounter} \n Computer:${computerWinCounter} `);
 }
-*/
+
 
 document.addEventListener("DOMContentLoaded", function(event) { 
     playGame();
+});
+*/
+
+const rockButton = document.querySelector('.rockButton');
+rockButton.addEventListener('click', () => {
+    playRound('rock', '')
+});
+
+const paperButton = document.querySelector('.paperButton');
+paperButton.addEventListener('click', () => {
+    playRound('paper', '')
+});
+
+const scissorsButton = document.querySelector('.scissorsButton');
+scissorsButton.addEventListener('click', () => {
+    playRound('scissors', '')
 });
