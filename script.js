@@ -1,3 +1,67 @@
+function getComputerChoice() {
+    let randomChoice = (Math.random() * 3)
+    randomChoice = Math.floor(randomChoice);
+    if (randomChoice == 0) {
+        return("rock")
+    } else if (randomChoice == 1) {
+        return("scissors")
+    } else {
+        return ("paper")
+    }
+}
+
+function playRound(playersChoice, computersChoice) {
+    computersChoice = getComputerChoice();
+    const output = document.querySelector('.output');
+    if (playersChoice == computersChoice) {
+        output.textContent = "Its a draw, play again!"
+        return playRound();
+    } else if (playersChoice == "rock"){
+        if (computersChoice == "paper") {
+         output.textContent = "You loose paper beat rock!";
+            return false;
+        }else {
+         output.textContent = "You win rock beat scissors!";
+            return true;
+        }
+    } else if (playersChoice == "paper"){
+        if (computersChoice == "scissors") {
+         output.textContent = "You loose scissors beat paper";
+            return false;
+        }else {
+         output.textContent = "You win paper beat rock"
+            return true;
+        }
+    } else if (playersChoice == "scissors"){
+        if (computersChoice == "rock") {
+         output.textContent = "You loose rock beat scissors";
+            return false;
+        }else {
+         output.textContent = "You win scissors beat paper";
+            return true;
+        }
+    }
+}
+
+
+const rockButton = document.querySelector('.rockButton');
+rockButton.addEventListener('click', () => {
+    playRound('rock', '')
+});
+
+const paperButton = document.querySelector('.paperButton');
+paperButton.addEventListener('click', () => {
+    playRound('paper', '')
+});
+
+const scissorsButton = document.querySelector('.scissorsButton');
+scissorsButton.addEventListener('click', () => {
+    playRound('scissors', '')
+});
+
+
+                ///###### pseudo code for building ######## //////
+
 // create a message explaining rules 
 //(going to be all done in console)
 
@@ -24,51 +88,6 @@
 // Create a counter(s) to store win and losses
 // Make sure function does exit after
 
-function getComputerChoice() {
-    let randomChoice = (Math.random() * 3)
-    randomChoice = Math.floor(randomChoice);
-    if (randomChoice == 0) {
-        return("rock")
-    } else if (randomChoice == 1) {
-        return("scissors")
-    } else {
-        return ("paper")
-    }
-}
-
-function playRound(playersChoice, computersChoice) {
-    computersChoice = getComputerChoice();
-    //playersChoice = prompt("Please type in you choice..");
-    //playersChoice = playersChoice.toLowerCase();
-    if (playersChoice == computersChoice) {
-        console.log("Its a draw, play again!")
-        return playRound();
-    } else if (playersChoice == "rock"){
-        if (computersChoice == "paper") {
-            console.log("You loose paper beat rock!");
-            return false;
-        }else {
-            console.log("You win rock beat scissors!");
-            return true;
-        }
-    } else if (playersChoice == "paper"){
-        if (computersChoice == "scissors") {
-            console.log("You loose scissors beat paper");
-            return false;
-        }else {
-            console.log("You win paper beat rock")
-            return true;
-        }
-    } else if (playersChoice == "scissors"){
-        if (computersChoice == "rock") {
-            console.log("You loose rock beat scissors");
-            return false;
-        }else {
-            console.log("You win scissors beat paper");
-            return true;
-        }
-    }
-}
 
 
 /*
@@ -94,23 +113,4 @@ function playGame() {
     console.log(`\nThe final scores are:\n You:${playerWinCounter} \n Computer:${computerWinCounter} `);
 }
 
-
-document.addEventListener("DOMContentLoaded", function(event) { 
-    playGame();
-});
 */
-
-const rockButton = document.querySelector('.rockButton');
-rockButton.addEventListener('click', () => {
-    playRound('rock', '')
-});
-
-const paperButton = document.querySelector('.paperButton');
-paperButton.addEventListener('click', () => {
-    playRound('paper', '')
-});
-
-const scissorsButton = document.querySelector('.scissorsButton');
-scissorsButton.addEventListener('click', () => {
-    playRound('scissors', '')
-});
