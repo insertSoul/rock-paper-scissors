@@ -19,29 +19,42 @@ function playRound(playersChoice, computersChoice) {
     } else if (playersChoice == "rock"){
         if (computersChoice == "paper") {
          output.textContent = "You loose paper beat rock!";
-            return false;
+            return scoreCounter(0,1);
         }else {
          output.textContent = "You win rock beat scissors!";
-            return true;
+            return scoreCounter(1,0);
         }
     } else if (playersChoice == "paper"){
         if (computersChoice == "scissors") {
          output.textContent = "You loose scissors beat paper";
-            return false;
+            return scoreCounter(0,1);
         }else {
          output.textContent = "You win paper beat rock"
-            return true;
+            return scoreCounter(1,0);
         }
     } else if (playersChoice == "scissors"){
         if (computersChoice == "rock") {
          output.textContent = "You loose rock beat scissors";
-            return false;
+            return scoreCounter(0,1);
         }else {
          output.textContent = "You win scissors beat paper";
-            return true;
+            return scoreCounter(1,0);
         }
     }
-}
+};
+
+let totalPlayerScore = 0
+let totalComputerScore = 0
+function scoreCounter(playerScore, computerScore) {
+    if (playerScore == 1) {
+        totalPlayerScore += 1;
+        console.log(`ur score = ${totalPlayerScore}`);
+    }
+    if (computerScore == 1) {
+        totalComputerScore += 1;
+        console.log(`computers score = ${totalComputerScore}`);
+    }
+};
 
 
 const rockButton = document.querySelector('.rockButton');
