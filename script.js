@@ -9,12 +9,13 @@ function getComputerChoice() {
         return ("paper")
     }
 }
+const output = document.querySelector('.output');
 
 function playRound(playersChoice, computersChoice) {
     computersChoice = getComputerChoice();
-    const output = document.querySelector('.output');
     if (playersChoice == computersChoice) {
         output.textContent = "Its a draw, play again!"
+        counter.textContent = "No change in score"
         return playRound();
     } else if (playersChoice == "rock"){
         if (computersChoice == "paper") {
@@ -40,26 +41,43 @@ function playRound(playersChoice, computersChoice) {
          output.textContent = "You win scissors beat paper";
             return scoreCounter(1,0);
         }
-    }
+    } 
 };
 
+const counter = document.querySelector('.counter');
 let totalPlayerScore = 0
 let totalComputerScore = 0
+
 function scoreCounter(playerScore, computerScore) {
     if (playerScore == 1) {
         totalPlayerScore += 1;
-        console.log(`ur score = ${totalPlayerScore}`);
+        counter.textContent = (`Your score = ${totalPlayerScore}`);
     }
     if (computerScore == 1) {
         totalComputerScore += 1;
-        console.log(`computers score = ${totalComputerScore}`);
+        counter.textContent = (`Computers score = ${totalComputerScore}`);
+    }
+    if (totalComputerScore >=5 || totalPlayerScore >=3) {
+        return determineWinner(totalPlayerScore, totalComputerScore); // Return the winner once either gets first to 5
     }
 };
+
+function determineWinner(finalPlayerScore, finalComputerScore) {
+    if (finalPlayerScore >= 5) {
+        output.textContent = "You've won the best of 5"
+        totalPlayerScore = 0;
+        totalComputerScore = 0;
+    }if (finalComputerScore >= 5) {
+        output.textContent = "The computer won the best of 5"
+        totalPlayerScore = 0;
+        totalComputerScore = 0;
+    }
+}
 
 
 const rockButton = document.querySelector('.rockButton');
 rockButton.addEventListener('click', () => {
-    playRound('rock', '')
+    playRound('rock', '');
 });
 
 const paperButton = document.querySelector('.paperButton');
@@ -71,6 +89,8 @@ const scissorsButton = document.querySelector('.scissorsButton');
 scissorsButton.addEventListener('click', () => {
     playRound('scissors', '')
 });
+
+
 
 
                 ///###### pseudo code for building ######## //////
@@ -103,7 +123,8 @@ scissorsButton.addEventListener('click', () => {
 
 
 
-/*
+/* 
+ // Did not need for UI version
 function playGame() {
     let playerWinCounter = 0;
     let computerWinCounter = 0;
