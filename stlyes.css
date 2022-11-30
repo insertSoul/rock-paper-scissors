@@ -4,12 +4,12 @@ body {
 }
 .header {
     display: flex;
-    background-color: rgba(19, 227, 22);
+    background-color: rgb(69, 226, 95);
     justify-content: center;
     font-weight: 800;
     font-size: 40px;
     padding: 30px;
-    margin:10px;
+    margin: 0.8rem;
     border-radius: 10px;
 }
 p {
@@ -39,18 +39,37 @@ p {
     font-size: 1.8rem;
     font-weight: 550;
     justify-content: space-evenly;
-    margin-top: 2rem;
+    align-items: center;
+    margin: 2rem 0.8rem;
     padding: 3rem;
     background-color: rgb(87, 231, 111);
     gap: 1rem;
+    height: 4.5rem;
+    border-radius: 10px;
+
 }
 .output{
-    align-self: flex-start;
-
+    font-size: 2rem;
+    padding: 1rem;
+    background-color: rgb(82, 119, 240);
+    border-radius: 15px;
+    border: 3px solid rgb(45, 67, 137);
 }
 .counter{
     align-self: flex-end;
     margin: 0, 2rem;
+    display: flex;
+    gap: 1rem;
+}
+.playersScore,
+.computersScore{
+    border: 3px solid rgb(23, 92, 94);
+    font-size: 1.6rem;
+    padding: 1rem;
+    background-color: rgb(70, 210, 212);
+    border-radius: 15px;
+    align-items: center;
+
 }
 button {
     width: 350px;

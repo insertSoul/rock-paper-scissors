@@ -9,13 +9,11 @@ function getComputerChoice() {
         return ("paper")
     }
 }
-const output = document.querySelector('.output');
 
 function playRound(playersChoice, computersChoice) {
     computersChoice = getComputerChoice();
     if (playersChoice == computersChoice) {
         output.textContent = "Its a draw, play again!"
-        counter.textContent = "No change in score"
         return playRound();
     } else if (playersChoice == "rock"){
         if (computersChoice == "paper") {
@@ -44,18 +42,14 @@ function playRound(playersChoice, computersChoice) {
     } 
 };
 
-const counter = document.querySelector('.counter');
-let totalPlayerScore = 0
-let totalComputerScore = 0
-
 function scoreCounter(playerScore, computerScore) {
     if (playerScore == 1) {
         totalPlayerScore += 1;
-        counter.textContent = (`Your score = ${totalPlayerScore}`);
+        playersScore.textContent = (`Your score = ${totalPlayerScore}`);
     }
     if (computerScore == 1) {
         totalComputerScore += 1;
-        counter.textContent = (`Computers score = ${totalComputerScore}`);
+        computersScore.textContent = (`Computers score = ${totalComputerScore}`);
     }
     if (totalComputerScore >=5 || totalPlayerScore >=3) {
         return determineWinner(totalPlayerScore, totalComputerScore); // Return the winner once either gets first to 5
@@ -64,15 +58,30 @@ function scoreCounter(playerScore, computerScore) {
 
 function determineWinner(finalPlayerScore, finalComputerScore) {
     if (finalPlayerScore >= 5) {
-        output.textContent = "You've won the best of 5"
+        output.textContent = "You've won the first to 5"
         totalPlayerScore = 0;
         totalComputerScore = 0;
+        playersScore.textContent = (`Your score = ${totalPlayerScore}`);
+        computersScore.textContent = (`Computers score = ${totalComputerScore}`);
+
     }if (finalComputerScore >= 5) {
-        output.textContent = "The computer won the best of 5"
+        output.textContent = "The computer won the first to 5"
         totalPlayerScore = 0;
         totalComputerScore = 0;
+        playersScore.textContent = (`Your score = ${totalPlayerScore}`);
+        computersScore.textContent = (`Computers score = ${totalComputerScore}`);
+
     }
 }
+
+const output = document.querySelector('.output');
+const playersScore = document.querySelector('.playersScore');
+const computersScore = document.querySelector('.computersScore');
+let totalPlayerScore = 0
+let totalComputerScore = 0
+output.textContent = "Press one of the buttons to play the game"
+playersScore.textContent = (`Your score = ${totalPlayerScore}`);
+computersScore.textContent = (`Computers score = ${totalComputerScore}`);
 
 
 const rockButton = document.querySelector('.rockButton');
