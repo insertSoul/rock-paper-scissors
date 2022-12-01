@@ -55,6 +55,20 @@ p {
     border-radius: 15px;
     border: 3px solid rgb(45, 67, 137);
 }
+.outputWin {
+    font-size: 2rem;
+    padding: 1rem;
+    background-color: rgb(240, 82, 119);
+    border-radius: 15px;
+    border: 6px solid rgb(45, 67, 137);
+}
+.outputLoose{
+    font-size: 2rem;
+    padding: 1rem;
+    background-color: rgb(240, 211, 82);
+    border-radius: 15px;
+    border: 6px solid rgb(45, 67, 137);
+}
 .counter{
     align-self: flex-end;
     margin: 0, 2rem;

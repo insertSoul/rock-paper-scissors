@@ -11,6 +11,7 @@ function getComputerChoice() {
 }
 
 function playRound(playersChoice, computersChoice) {
+    resetOutput();
     computersChoice = getComputerChoice();
     if (playersChoice == computersChoice) {
         output.textContent = "Its a draw, play again!"
@@ -63,6 +64,8 @@ function determineWinner(finalPlayerScore, finalComputerScore) {
         totalComputerScore = 0;
         playersScore.textContent = (`Your score = ${totalPlayerScore}`);
         computersScore.textContent = (`Computers score = ${totalComputerScore}`);
+        output.classList.toggle('outputWin');
+
 
     }if (finalComputerScore >= 5) {
         output.textContent = "The computer won the first to 5"
@@ -70,8 +73,14 @@ function determineWinner(finalPlayerScore, finalComputerScore) {
         totalComputerScore = 0;
         playersScore.textContent = (`Your score = ${totalPlayerScore}`);
         computersScore.textContent = (`Computers score = ${totalComputerScore}`);
-
+        output.classList.toggle('outputLoose');
     }
+}
+
+function resetOutput() {
+    output.classList.remove('outputWin');
+    output.classList.remove('outputLoose');
+    output.classList.add('output');
 }
 
 const output = document.querySelector('.output');
